@@ -94,8 +94,8 @@ const submit =(e)=>{
    const options = {
     method: 'GET',
     headers: {
-        //'3080ae25famsh2a48333bf8619d4p118e5djsnbca874ca3480'
-        'X-RapidAPI-Key': 'c20809c96dmsh0b41db4c1c11af4p1f6953jsn3cf0793e646b',
+     
+        'X-RapidAPI-Key': <YOUR-API-KEY>
         'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
     }
 }
