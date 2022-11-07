@@ -3,18 +3,18 @@ body{
 }
 nav{
     border-bottom: 1px #e4e2e0 solid;
-    height: 40px;
-    font-weight: 400;
-    margin-top: 24px;
+    margin-bottom: 58px;
+    height: 42px;
+    margin-top: 35px;
     font-weight: 200;
     color: #2a2a2a;
     font-size: 0.875rem;
 }
-.navspan1{
-    margin-left: 100px;
-}
 .navspan2{
-    margin-left:350px;
+    margin-left: 420px;
+}
+.navspan1{
+    margin-left: 138px;   
 }
 .a1{
     margin-left: 25px;
@@ -182,7 +182,7 @@ h2{
     z-index: 1;
     position: absolute;
     right: 331px;
-    top: 126px;
+    top: 181px;
     border: 1px solid #7373ff;
     border-bottom-right-radius: 13px;
     border-bottom-left-radius: 13px;
@@ -220,7 +220,7 @@ h2{
     z-index: 1;
     position: absolute;
     right: 732px;
-    top: 126px;
+    top: 181px;
     border: 1px solid #7373ff;
     border-bottom-right-radius: 13px;
     border-bottom-left-radius: 13px;
@@ -314,7 +314,7 @@ h2{
     cursor: pointer;
 }
 .div33{
-    margin-left: 17px;
+
     text-align-last: center;
 }
 .subapidiv2{
@@ -322,4 +322,225 @@ h2{
 }
 .bluepara{
     color: #285cad;
+}
+.indeedlogo{
+    position: absolute;
+    top: 10px;
+    height: 61px;
+    margin-left: 27px;
+    cursor: pointer;
+}
+.usericon{
+    margin-top: -15px;
+    display: block;
+    margin-left: 78%;
+    height: 31px;
+    width: fit-content;
+    background-color: #2557a7;
+    color: white;
+    border-radius: 9px;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 6px;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger {
+    margin-top: -34px;
+    height:31px ;
+    margin-left: 82%;
+    cursor: pointer;
+    inline-size: max-content;
+    display: none;
+}
+.smallnav{
+    display:flex;
+    flex-direction: row;
+    display: none;
+}
+@media (max-width:1278px){
+.navspan2{
+    margin-left:20vw;
+}
+.usericon{
+    display:none;
+}
+}
+@media (max-width:1072px){
+    .navspan2{
+        margin-left:10vw;
+    }
+    .indeedlogo{
+        height: 50px;
+        top: 15px;
+       }
+    }
+    @media (max-width:976px){
+        .navspan2{
+display: none;
+        }
+        .navspan1{
+            display: none;
+        }
+        .a2{
+            display: none;
+        }
+       .indeedlogo{
+        height: 40px;
+        top: 20px;
+       }
+       .smallnav{
+        display: block;
+       }
+       .usericon{
+      display: block;
+      margin-left: 76%;
+    }
+    .hamburger{
+        display: block;
+        margin-left: 92%;
+    }
+    .inputdiv{
+        display: flex;
+        gap: 14px;
+        flex-direction: column;
+        margin-left: 0px;
+    }
+    input{
+
+    }
+
+    .dataResult2{
+        right: 8%;
+        top: 27%;
+       width: 90%;
+    }
+    .dataResult{
+        right: 8%;
+        top: 37%;
+        width: 90%;
+    }
+    .inputbutton{
+        width: 87%;
+        margin-left: 12px;
+    }
+    input{
+        width: 90%;
+    }
+    .i
+    nav{
+        border-bottom: none;
+    }
+    .inputdiv2{
+        text-align: center;
+        /* margin-top: 21px; */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .searchbutton{
+        width: 91%;
+        margin-left: 13px;
+    }
+    .apidiv{
+        justify-content: center;
+    margin-top: 89px;
+    /* margin-left: 120px; */
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    }
+    
+}
+    @media (max-width:803px){
+        .navspan2{
+display: none;
+        }
+        .navspan1{
+            display: none;
+        }
+        .a2{
+            display: none;
+        }
+       .indeedlogo{
+        height: 40px;
+        top: 20px;
+       }
+       .smallnav{
+        display: block;
+       }
+       .usericon{
+      display: block;
+      margin-left: 60%;
+    }
+    .hamburger{
+        display: block;
+margin-left: 78%;
+    }
+    nav{
+        border-bottom: none;
+    }
+}
+@media (max-width:744px){
+    .navspan2{
+display: none;
+    }
+    .navspan1{
+        display: none;
+    }
+    .a2{
+        display: none;
+    }
+   .indeedlogo{
+    height: 40px;
+    top: 20px;
+   }
+   .smallnav{
+    display: block;
+   }
+   .usericon{
+  display: block;
+  margin-left: 67%;
+}
+.hamburger{
+    display: block;
+    margin-left: 82%;
+}
+nav{
+    border-bottom: none;
+}
+}
+@media (max-width:744px){
+    .navspan2{
+display: none;
+    }
+    .navspan1{
+        display: none;
+    }
+    .a2{
+        display: none;
+    }
+   .indeedlogo{
+    height: 51px;
+    top: 12px;
+   }
+   .smallnav{
+    display: block;
+   }
+   .usericon{
+    display: block;
+    margin-left: 53%;
+}
+.hamburger{
+    display: block;
+    margin-left: 86%;
+}
+nav{
+    border-bottom: none;
+}
 }
