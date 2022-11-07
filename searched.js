@@ -160,6 +160,171 @@ const submit =(e)=>{
     )}
 <button className="searchbutton" >search</button>
    </form>
+import React, { useEffect, useRef,useLayoutEffect } from "react";
+import Nav from "./Nav";
+import { useState } from "react";
+import ScaleLoader from "react-spinners/ClipLoader";
+import { Link, useFetcher, useLocation } from "react-router-dom";
+import {css} from "@emotion/react"
+import Footer from "./Footer";
+import BookData from "./Data.json";
+import Jobs from "./Jobs.json"
+import apifile from './Api.json'
+
+const Searched=(props)=>{
+const location=useLocation();
+  const [searched, setsearched] = useState({ whatd: location.state.whatd, whered: location.state.whered })
+    const [exists,setexists]=useState(true)
+    const [apidata, setapidata] = useState([]);
+    const [jobapidata, setjobapidata] = useState([]);
+    const [wordEntered, setWordEntered] = useState('');
+    const [whatsearched, setwhatsearched] = useState('');
+    const [isloading,setisloading]=useState(true)
+    const [status,setstatus]=useState(true);
+    //const [api,setapi]=useState(apifile);
+    const api=useRef(null)
+    const [apiclick,setapiclick]=useState(false)
+    const [jobft,setjobft]=useState(null)
+    const [whereexists,setwhereexists]=useState(true)
+    const [apikey,setapikey]=useState('c20809c96dmsh0b41db4c1c11af4p1f6953jsn3cf0793e646b')
+ //  const [apitime,setapitime]=useState('')
+    function changewhat(e) {
+
+        let changed = e.target.value;
+        setWordEntered(changed)
+setwhereexists(true)
+        const newFilter = BookData.filter((value) => {
+return value.name.toLowerCase().includes(wordEntered.toLowerCase()) ;        
+          });
+
+    if (changed === "") {
+      setapidata([]);
+    } else {
+      setapidata(newFilter);
+    }
+  
+    
+}
+function jobchange(e){
+    let changedd=e.target.value;
+    setexists(true)
+    setwhatsearched(changedd)
+    const newjobFilter = Jobs.filter((value) => {
+        return value.name.toLowerCase().includes(whatsearched.toLowerCase()) ;     
+          });
+    if (changedd === "") {
+      setjobapidata([]);
+    } else {
+      setjobapidata(newjobFilter);
+    
+    }    
+}
+
+const apiasync=async()=>{
+    const response= await fetch('https://jsonplaceholder.typicode.com/posts')
+    const body= await (response.json());
+return body
+}
+
+
+
+
+
+useLayoutEffect(()=>{
+    const options = {
+        method: 'GET',
+        headers: {
+            //'3080ae25famsh2a48333bf8619d4p118e5djsnbca874ca3480'
+            'X-RapidAPI-Key': apikey,
+            'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+        }
+    }
+fetch('https://jsearch.p.rapidapi.com/search?query='+searched.whatd+'%20in%20'+searched.whered+'&num_pages=1', options)
+	.then(response => response.json())
+	.then(response => {
+        setisloading(false)
+        api.current=response.data;
+    console.log(api.current)
+    })
+	.catch(err => {console.error(err)
+    setstatus(false)
+    setapikey('ac7e8fcd59msha3e59fbda262531p147ad9jsn732b1de1990f')
+    });
+},[]);
+const submit =(e)=>{
+        e.preventDefault();
+   //   const res=await apiasync();
+   
+   const options = {
+    method: 'GET',
+    headers: {
+        //'3080ae25famsh2a48333bf8619d4p118e5djsnbca874ca3480'
+        'X-RapidAPI-Key': 'c20809c96dmsh0b41db4c1c11af4p1f6953jsn3cf0793e646b',
+        'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+    }
+}
+   fetch('https://jsearch.p.rapidapi.com/search?query='+whatsearched+'%20in%20'+wordEntered+'&num_pages=1', options)
+   .then(response => response.json())
+   .then(response => {
+       setisloading(false)
+       api.current=response.data;
+   console.log(api.current)
+   })
+   .catch(err => {console.error(err)
+   setstatus(false)
+   setapikey('ac7e8fcd59msha3e59fbda262531p147ad9jsn732b1de1990f')
+   });
+
+    }        
+    function clickeditem(item){
+        setWordEntered(item);
+
+    }
+    const override= css`
+    display:block;
+    margin-left:500px;
+    margin-top:100px
+
+    ` ;
+    return(
+        <>
+        <Nav/>
+         <div className='div33'>
+         <form className='inputdiv2' onSubmit={submit} >
+   
+<input placeholder='job title,keywords,company' name='whatd'  onChange={jobchange} value={whatsearched} autocomplete="off"></input>
+{jobapidata.length !=0 && exists &&(
+<div className="dataResult2">
+ 
+        {jobapidata.slice(0, 15).map((value, key) => {
+    return(
+    <div className="dataItem2" onClick={()=>{
+        setwhatsearched(value.name) 
+         setexists(false)}}  >
+        <p>{value.name}</p>
+        </div>
+)})}
+    </div>
+    )}
+
+ <input placeholder='city or postcode'  name='whered' onChange={changewhat} value={wordEntered} autocomplete="off"></input>
+ {apidata.length !=0 && whereexists &&(
+<div className="dataResult">
+ 
+        { apidata.slice(0, 15).map((value,key) => {
+    return(
+
+    <div className="dataItem" key ={key} onClick={()=>{
+        setWordEntered(value.name)
+        setwhereexists(false)
+        }}>
+          <p>{value.name}</p>
+        </div>
+)})}
+    </div>
+    )}
+<button className="searchbutton" >search</button>
+   </form>
    </div>
 {   
 isloading ? 
