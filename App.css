@@ -278,6 +278,7 @@ h2{
     text-transform: uppercase
   }
   .applicationdiv{
+    display: block;
     height: 492px;
     border-radius: 13px;
     padding: 20px;
@@ -355,11 +356,40 @@ h2{
     cursor: pointer;
     inline-size: max-content;
     display: none;
+  
 }
 .smallnav{
     display:flex;
     flex-direction: row;
     display: none;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    width: 72%;
+    padding-left: 10px;
+    height: 100%;
+    top: -36px;
+    background-color: white;
+    padding-top: 56px;
+    gap: 23px;
+    font-size: medium;
+    font-weight: 700;
+    box-shadow: -3px 1px 20px 0px #474747;
+}
+.sidebarel{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 16px;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+.sidebararrow{
+    position: absolute;
+    right: 0px;
 }
 @media (max-width:1278px){
 .navspan2{
@@ -367,6 +397,9 @@ h2{
 }
 .usericon{
     display:none;
+}
+.applicationdiv{
+    display: block;
 }
 }
 @media (max-width:1072px){
@@ -377,6 +410,10 @@ h2{
         height: 50px;
         top: 15px;
        }
+
+       .applicationdiv{
+        display: block;
+    }
     }
     @media (max-width:976px){
         .navspan2{
@@ -409,13 +446,10 @@ display: none;
         flex-direction: column;
         margin-left: 0px;
     }
-    input{
-
-    }
-
+    
     .dataResult2{
-        right: 8%;
-        top: 27%;
+    right: 8%;
+    top: 27%;
        width: 90%;
     }
     .dataResult{
@@ -455,7 +489,12 @@ display: none;
     align-items: center;
     border-top: 1px solid lightgray;
     }
-    
+    .applicationdiv{
+        display: block;
+    }
+    .loader{
+        margin-left: 46%;
+    }
 }
     @media (max-width:803px){
         .navspan2{
@@ -485,6 +524,15 @@ margin-left: 78%;
     nav{
         border-bottom: none;
     }
+    .inputdiv2{
+        margin-left: 0px;
+    }
+    .applicationdiv{
+        display: none;
+    }
+    .loader{
+    margin-left: 50%;
+    }
 }
 @media (max-width:744px){
     .navspan2{
@@ -505,7 +553,7 @@ display: none;
    }
    .usericon{
   display: block;
-  margin-left: 67%;
+  margin-left: 47%;
 }
 .hamburger{
     display: block;
@@ -514,8 +562,21 @@ display: none;
 nav{
     border-bottom: none;
 }
+.inputdiv2{
+    margin-left: 0px;
 }
-@media (max-width:744px){
+.applicationdiv{
+    display: none;
+}
+.loader{
+    margin-left: 45%;
+}
+}
+@media (max-width:360px){
+    .inputbutton{
+        width: 83%;
+        margin-left: 13px;    
+    }
     .navspan2{
 display: none;
     }
@@ -532,10 +593,22 @@ display: none;
    .smallnav{
     display: block;
    }
-   .usericon{
+   .usericon {
+    margin-top: -14px;
     display: block;
-    margin-left: 53%;
-}
+    margin-left: 43%;
+    height: 32px;
+    width: fit-content;
+    background-color: #2557a7;
+    color: white;
+    border-radius: 9px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 6px;
+    cursor: pointer;
+   }
 .hamburger{
     display: block;
     margin-left: 86%;
@@ -543,4 +616,20 @@ display: none;
 nav{
     border-bottom: none;
 }
+.inputdiv2{
+margin-left: 0px;
 }
+.applicationdiv{
+    display: none;
+}
+.loader{
+    margin-left: 35%;
+}
+}
+.loader{
+  
+    margin: auto;
+    width: 10%;
+    padding-top: 87px;
+}
+
